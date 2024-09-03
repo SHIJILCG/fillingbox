@@ -1,10 +1,13 @@
 const boxes = document.getElementById('boxes');
 const itembox =document.getElementById('item-box')
-const numberofboxes=4;
-const numberofitems = 8;
-let flag = 0
+const numberofboxes=5;
+const numberofitems = 20;
+let flag = 0;
+
 createboxes();
 creteitems()
+
+
 function createboxes(){
     for(let i=0;i<numberofboxes;i++){
         const boxEl=document.createElement('div');
@@ -15,6 +18,16 @@ function createboxes(){
     const allboxes=document.querySelectorAll('.box');
     allboxes[0].classList.add('active')
 }
+function creteitems(){
+    for(let i=0;i<numberofitems;i++){
+        const itemEl=document.createElement('div');
+        itemEl.classList.add('item');
+        itemEl.innerText = i + 1;
+        itemEl.addEventListener('click',()=> clickeditem(itemEl))
+        itembox.appendChild(itemEl)
+    }
+}
+
 
 function clickedbox(item1){
     flag=0
@@ -30,21 +43,13 @@ function clickedbox(item1){
         item1.classList.add('active');
     }
 }
-function creteitems(){
-    for(let i=0;i<numberofitems;i++){
-        const itemEl=document.createElement('div');
-        itemEl.classList.add('item');
-        itemEl.innerText = i + 1;
-        itemEl.addEventListener('click',()=> clickeditem(itemEl))
-        itembox.appendChild(itemEl)
-    }
-}
 
 function clickeditem(item){
-    
     additemtofirstbox(item.innerText)
     item.remove();
 }
+
+
 
 function additemtofirstbox(itemvalue){
     const Numberofboxes=document.querySelectorAll('.box')
@@ -62,8 +67,8 @@ function changetheitems(item1,item){
         /* no code here so the last code all ways execute */
      }else{
         const value = activeboxes[n - 1].innerText;
-       const item = activeboxes[n - 1].remove()
-       createsingleitems(item1,value)
+        activeboxes[n - 1].remove()
+        createsingleitems(item1,value)
          
      }
     const allboxes=document.querySelectorAll('.box');
