@@ -2,11 +2,8 @@ const boxes = document.getElementById('boxes');
 const itembox =document.getElementById('item-box')
 const numberofboxes=5;
 const numberofitems = 20;
-let flag = 0;
-
 createboxes();
 creteitems()
-
 
 function createboxes(){
     for(let i=0;i<numberofboxes;i++){
@@ -28,15 +25,13 @@ function creteitems(){
     }
 }
 
-
 function clickedbox(item1){
-    flag=0
+    let flag = 0;
     const allboxes=document.querySelectorAll('.box');
     allboxes.forEach(item => {
-        
         if(item.classList.contains('active')){
             flag = 1
-            changetheitems(item1,item)
+            changetheitems(item1,item);
         }   
     })
     if(flag === 0){
@@ -49,15 +44,12 @@ function clickeditem(item){
     item.remove();
 }
 
-
-
 function additemtofirstbox(itemvalue){
     const Numberofboxes=document.querySelectorAll('.box')
     const boxel=document.createElement('div');
     boxel.classList.add('item');
     boxel.innerText= itemvalue;
-    Numberofboxes[0].appendChild(boxel);
-   
+    Numberofboxes[0].appendChild(boxel); 
 }
 
 function changetheitems(item1,item){
@@ -76,8 +68,6 @@ function changetheitems(item1,item){
         allboxes.forEach(item => item.classList.remove('active'))
     }, 100);    
 }
-
-
 
 function createsingleitems(item1,value){
      const itemEl=document.createElement('div');
