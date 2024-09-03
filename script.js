@@ -56,7 +56,8 @@ function changetheitems(item1,item){
      const activeboxes=item.querySelectorAll('.item')
      let n = activeboxes.length
      if(activeboxes.length < 1){
-        /* no code here so the last code all ways execute */
+        console.log("dhgkgjkgj");
+        /* if box is empty nothing happens */
      }else{
         const value = activeboxes[n - 1].innerText;
         activeboxes[n - 1].remove()
